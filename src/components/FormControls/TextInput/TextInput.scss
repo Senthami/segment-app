@@ -1,0 +1,64 @@
+@import "../../../config.scss";
+
+// Input field style
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  @include font(0.875rem, 500, $dark);
+  line-height: 1.5;
+  -webkit-appearance: none;
+  border-radius: 0;
+  background-color: $white;
+  text-overflow: ellipsis;
+  background-clip: padding-box;
+  border: 0.0625rem solid $link-water;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Input field focus
+  &:focus {
+    color: $dark;
+    background-color: $white;
+    border-color: $gray76;
+    outline: 0;
+
+    ::placeholder {
+      opacity: 0;
+    }
+  }
+
+  // Placeholder
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &::-ms-input-placeholder,
+  &::placeholder {
+    color: $gray76;
+    opacity: 1;
+    font-weight: 500;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $gray76;
+    opacity: 1;
+    font-weight: 500;
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

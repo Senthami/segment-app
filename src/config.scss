@@ -1,0 +1,41 @@
+$white: #fff;
+$yellow:#efa603;
+$dark: #000;
+$nero: #222;
+$blue: #1f2a44;
+$darklime: #28a745;
+$lime-green: #3dcc4a;
+$link-water: #caced3;
+$gray76: #c2c2c2;
+$midnight: #2a2d37;
+$pink: #e61f49;
+$lavendor: #e9e9eb;
+$maire: #1d1d1b;
+$bright-grey: #565c65;
+$blue:#2bafbf;
+$grayf6:#f6f6f6;
+
+@mixin font($f, $fw, $c) {
+  font-size: $f;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin pos($p, $l, $t) {
+  position: $p;
+  left: $l;
+  top: $t;
+}
+
+@mixin userSelect($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+@mixin color($clr, $bg, $bor-clr) {
+  color: $clr;
+  background-color: $bg;
+  border-color: $bor-clr;
+}

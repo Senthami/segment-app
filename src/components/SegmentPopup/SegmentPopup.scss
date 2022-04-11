@@ -1,0 +1,131 @@
+@import "../../config.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1030;
+  background: transparent;
+  overflow: hidden;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.d-block {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+.modal-main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 0 0 0 auto;
+  background: $white;
+  min-width: 35rem;
+  background-color: $white;
+  height: 100%;
+  overflow-y: auto;
+  animation-name: modalFade;
+  animation-duration: 0.4s;
+}
+
+@keyframes modalFade {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  width: 100%;
+  margin: 0 auto;
+  animation-name: modalFade;
+  animation-duration: 0.4s;
+  padding-bottom: 10rem;
+}
+
+.saving-seg {
+  background: $blue;
+  @include font(1.2rem, 600, $white);
+  padding: 1.5rem;
+}
+.segment {
+  .segment-inp {
+    padding: 1rem 1rem 1rem 0.5rem;
+  }
+  .segment-dropdown {
+    border: 1px solid $blue;
+    padding: 1rem;
+  }
+  .btn-add {
+    color: $darklime;
+    background: transparent;
+    text-decoration: underline;
+    padding: 0;
+    margin-top: 1rem;
+    border: none;
+    &:hover {
+      color: $lime-green;
+      border: none;
+    }
+    &:focus {
+      box-shadow: none;
+      border: none;
+    }
+    &:disabled{
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.btn-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 35rem;
+  height: 120px;
+  background: $grayf6;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  .btn-white {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 577px) and(max-width: 991px) {
+  .modal-main {
+    width: 30rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-main {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-main {
+    min-width: 0;
+    width: 100%;
+  }
+}

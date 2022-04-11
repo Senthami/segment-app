@@ -1,0 +1,194 @@
+@import "../../../config.scss";
+
+.oa-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  &.mb-3:not(:last-child){
+    margin-bottom: 1rem;
+  }
+
+  .btn-oa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 2.188rem;
+    padding: 0.5rem 5% 0.5rem 0.375rem;
+    border: 0.0625rem solid $link-water;
+    white-space: nowrap;
+    background-image: url("/assets/chev-down.svg");
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &.ph-show::after {
+      content: "Select";
+      position: absolute;
+      @include font(0.875rem, 500, $bright-grey);
+      left: 0.75rem;
+    }
+
+    &.bor-ylw {
+      border: 0.0625rem solid $yellow;
+      transition: border 0.15s ease-in-out;
+    }
+  }
+
+  .segment {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    background-color: $bright-grey;
+    margin: 0.3rem 1rem 0.3rem 0;
+
+    span {
+      &:first-child {
+        @include font(0.875rem, 400, $white);
+        margin-right: 1rem;
+      }
+
+      &:not(:first-child) {
+        margin-top: -0.3rem;
+      }
+    }
+  }
+
+  .oa-menu {
+    position: absolute;
+    bottom: 0px;
+    top: 100%;
+    width: 200px;
+    height: max-content;
+    overflow: auto;
+    z-index: 3;
+    background: $white;
+    background-clip: padding-box;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+    max-height: 0;
+
+    &.showDD {
+      max-height: 200px;
+      transition: all 0.15s ease-in-out;
+    }
+
+    &.hideDD {
+      pointer-events: none;
+      transition: all 0.25s ease-in-out;
+    }
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 0.375rem;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $bright-grey;
+      border-radius: 0.5rem;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  .oa-srh {
+    position: sticky;
+    top: 0px;
+    padding: 0.125rem 0 0.063rem;
+    background-color: $white;
+    z-index: 1020;
+
+    .c-srh {
+      width: 10rem !important;
+      margin: 0.625rem 0.938rem;
+    }
+  }
+
+  .oa-dropdown-list {
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+    /* The segment-label */
+    .segment-label {
+      display: block;
+      position: relative;
+      margin: 5px 15px;
+      min-height: 2rem;
+      padding-left: 1.75rem;
+      cursor: pointer;
+      @include font(0.875rem, 400, $nero);
+      @include userSelect(none);
+      &.label-disabled {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    }
+
+    /* Hide the browser's default checkbox */
+    .segment-label input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .segment-check {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      background-color: transparent;
+      border: solid 0.0625rem $bright-grey;
+    }
+
+    /* On mouse-over, add a bright-grey background color */
+    .segment-label:hover input ~ .segment-check {
+      background-color: $gray76;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .segment-label input:checked ~ .segment-check {
+      background-color: $nero;
+    }
+
+    /* Create the segment-check/indicator (hidden when not checked) */
+    .segment-check:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the segment-check when checked */
+    .segment-label input:checked ~ .segment-check:after {
+      display: block;
+    }
+
+    /* Style the segment-check/indicator */
+    .segment-label .segment-check:after {
+      left: 0.36rem;
+      top: 0.12rem;
+      width: 0.25rem;
+      height: 0.55rem;
+      border: solid 0.063rem $yellow;
+      border-width: 0 0.1rem 0.1rem 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+}
