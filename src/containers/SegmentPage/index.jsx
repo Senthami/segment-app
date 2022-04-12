@@ -43,7 +43,6 @@ class SegmentPage extends Component {
       body: JSON.stringify(fields),
     });
     this.setState({ ...this.initialState() });
-    window.location.reload(false);
   };
 
   render() {
